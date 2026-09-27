@@ -1,0 +1,92 @@
+@reference "../../app/globals.css";
+.hero {
+  /* Includes the fixed navigation so the whole hero fits the first screen. */
+  min-height: 100svh;
+  display: flex;
+  padding-top: 96px;
+  padding-bottom: 24px;
+  @variant lg {
+    padding-top: 128px;
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+}
+
+.title {
+  font-size: clamp(2.25rem, 4.8vw, 4.25rem);
+  line-height: 1.08;
+  /* phones: max-md Tailwind breakpoint */
+  @variant max-md {
+    font-size: clamp(2rem, 8.5vw, 3.5rem);
+  }
+}
+
+.description {
+  font-size: clamp(0.875rem, 1.25vw, 1.0625rem);
+  line-height: 1.65;
+}
+
+.main {
+  @variant max-md {
+    padding-block: 8px;
+  }
+}
+
+/* Keep short laptops and landscape tablets compact without clipping text. */
+.hero {
+  @variant md:[@media(max-height:760px)] {
+    padding-bottom: 16px;
+  }
+}
+.inner {
+  @variant md:[@media(max-height:760px)] {
+    gap: 16px;
+  }
+}
+.title {
+  @variant md:[@media(max-height:760px)] {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+  }
+}
+.image {
+  @variant md:[@media(max-height:760px)] {
+    max-height: 128px;
+  }
+}
+.metrics {
+  @variant md:[@media(max-height:760px)] {
+    padding-top: 12px;
+  }
+}
+
+/* Short phones: max-md width + short height, via Tailwind stacked variants */
+.hero {
+  @variant max-md:[@media(max-height:700px)] {
+    padding-top: 84px;
+    padding-bottom: 16px;
+  }
+}
+.inner {
+  @variant max-md:[@media(max-height:700px)] {
+    gap: 16px;
+  }
+}
+.badges {
+  @variant max-md:[@media(max-height:700px)] {
+    display: none;
+  }
+}
+.actions {
+  @variant max-md:[@media(max-height:700px)] {
+    margin-top: 16px;
+  }
+}
+.metrics {
+  @variant max-md:[@media(max-height:700px)] {
+    padding-top: 12px;
+  }
+}

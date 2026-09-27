@@ -1,0 +1,97 @@
+@reference "../../app/globals.css";
+.hero {
+  display: flex;
+  min-height: 100svh;
+  padding-block: 96px 28px;
+  background: var(--bg);
+  @variant lg {
+    padding-top: 128px;
+  }
+  /* short viewport height: Tailwind arbitrary height variant, no raw @media */
+  @variant [@media(max-height:760px)] {
+    padding-bottom: 20px;
+  }
+}
+.heroInner {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+  @variant [@media(max-height:760px)] {
+    gap: 18px;
+  }
+}
+.backdrop {
+  background:
+    radial-gradient(ellipse at 20% 25%, #38bdf811, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, #8b5cf614, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #2dd4bf0d, transparent 55%);
+}
+.orbit {
+  width: 920px;
+  height: 510px;
+  transform: rotate(-12deg);
+}
+.orbit::after {
+  content: "";
+  position: absolute;
+  inset: -35px 40px;
+  border: 1px dashed #8b5cf61a;
+  border-radius: 50%;
+  transform: rotate(24deg);
+}
+.headline {
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 1.08;
+  @variant [@media(max-height:760px)] {
+    font-size: clamp(2rem, 4.4vw, 3.5rem);
+  }
+}
+.intro {
+  font-size: clamp(.875rem, 1.4vw, 1.0625rem);
+  line-height: 1.7;
+}
+.anchor { scroll-margin-top: 150px; }
+.faq summary { list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq[open] summary { color: #7c3aed; }
+.faq[open] summary span:last-child { transform: rotate(45deg); }
+:global(.dark) .faq[open] summary { color: #c4b5fd; }
+
+/* Small phones with short height: max-sm Tailwind breakpoint + height, no raw @media */
+.hero {
+  @variant max-sm:[@media(max-height:740px)] {
+    padding-block: 88px 16px;
+  }
+}
+.heroInner {
+  @variant max-sm:[@media(max-height:740px)] {
+    gap: 12px;
+  }
+}
+.headline {
+  @variant max-sm:[@media(max-height:740px)] {
+    margin-top: 16px;
+    font-size: 1.875rem;
+  }
+}
+.intro {
+  @variant max-sm:[@media(max-height:740px)] {
+    margin-top: 16px;
+    line-height: 1.55;
+  }
+}
+.audience {
+  @variant max-sm:[@media(max-height:740px)] {
+    display: none;
+  }
+}
+.actions {
+  @variant max-sm:[@media(max-height:740px)] {
+    margin-top: 16px;
+  }
+}
+.principles {
+  @variant max-sm:[@media(max-height:740px)] {
+    padding-top: 12px;
+  }
+}

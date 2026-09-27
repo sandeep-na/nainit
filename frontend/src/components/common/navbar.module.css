@@ -1,0 +1,12 @@
+/* Preserve the complete navigation on tablets by giving links their own row. */
+@media (min-width: 768px) and (max-width: 1279.98px) {
+  .trustBar { flex-wrap: wrap; justify-content: center; gap: 6px 24px; padding-inline: 20px; font-size: 10px; }
+  .trustBar > div { gap: 12px; }
+  .nav { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 20px; padding: 12px 20px 8px; }
+  .desktopActions { justify-self: end; grid-column: 2; grid-row: 1; }
+  .desktopActions > a { padding: 9px 14px; font-size: 12px; }
+  .desktopLinks { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; gap: 12px; border-top: 1px solid #94a3b826; padding-top: 6px; font-size: 12px; white-space: nowrap; }
+  /* Anchor dropdowns to the full navigation so edge items stay on screen. */
+  .desktopLinks > div { position: static; }
+  .desktopLinks [role="menu"] { max-height: calc(100dvh - 170px); overflow-y: auto; overscroll-behavior: contain; }
+}
